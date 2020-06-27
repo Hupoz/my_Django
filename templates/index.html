@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .header{
+            width: 100%;
+            height: 50px;
+            background-color: #369;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+
+
+
+<form action="" method="post">  <!--action=""默认对当前页面url发送请求-->
+    姓名<input type="text" name="name">
+    年龄<input type="text" name="age">
+    <input type="submit">
+</form>
+
+<p>{{ ctime }}</p>
+<h4>自定义过滤器，标签</h4>
+{% load my_tag_filters %}
+<p>{{ i|multi_filter:j }}</p> <!--自定义的过滤器，由于语法限制，最多能用到i，j两个参数，但能够用于逻辑判断-->
+
+
+{% if i|multi_filter:j > 100 %}  <!--multi_filter过滤器的逻辑判断-->
+<p>100</p>
+{% else %}
+<p>{{ i }}</p>
+{% endif %}
+
+<p>{% multi_tag 10 j i %}</p>  <!--自定义的标签，不受语法限制，可用多个参数，但不能用于逻辑判断-->
+
+</body>
+</html>
