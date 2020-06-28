@@ -5,10 +5,11 @@
     <title>addbook</title>
     <link rel="stylesheet" href="/static/bs/css/bootstrap.css">
     <style>
-        .container{
+        .container {
             margin-top: 100px;
         }
-        .btn{
+
+        .btn {
             margin-top: 10px;
         }
     </style>
@@ -35,7 +36,7 @@
                     <select name="publish_id" id="" class="form-control">
 
                         {% for publish in publish_list %}
-                        <option value="{{ publish.pk }}">{{ publish.name }}</option>
+                            <option value="{{ publish.pk }}">{{ publish.name }}</option>
                         {% endfor %}
 
                     </select>
@@ -49,7 +50,7 @@
                     <select type="text" class="form-control" name="authors_id_list" multiple>
 
                         {% for author in author_list %}
-                        <option value="{{ author.pk }}">{{ author.name }}</option>
+                            <option value="{{ author.pk }}">{{ author.name }}</option>
                         {% endfor %}
 
                     </select>

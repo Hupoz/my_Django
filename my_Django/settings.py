@@ -134,9 +134,9 @@ STATIC_URL = '/static/'  # 静态文件的路径别名，对外提供WEB访问�
 #
 # # 设置图片等静态文件的路径,开发阶段放置项目自己的静态文件（不能包含STATIC_ROOT路径）
 # 该命令会告诉django,首先到STATICFILES_DIRS里面寻找静态文件，其次再到各个app的static文件夹里面找（惰性查找,查找到第一个,就停止查找了）
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static")  # 这个静态文件的名称必须和项目里面的文件名称相同
-#     )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),  # 这个静态文件的名称必须和项目里面的文件名称相同
+    )                                  # STATICFILES_DIRS为元组或列表，“,”不可丢失！
 
 LOGGING = {
     'version': 1,
