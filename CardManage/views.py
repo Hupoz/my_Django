@@ -15,9 +15,17 @@ def login(request):
         # print(request.POST)
         user = request.POST.get("user")
         pwd = request.POST.get("pwd")
+        user_Ajax = request.POST.get("user_Ajax")
+        pwd_Ajax = request.POST.get("pwd_Ajax")
+        res = {"user_Ajax": None,
+               "msg": None}
+        print(user_Ajax, pwd_Ajax)
 
         if user == "zyh" and pwd == "123":
             return HttpResponse("<h2>OK</h2>")
+        elif user_Ajax == "zyh" and pwd_Ajax == "123":
+            import json
+            return HttpResponse(json.dumps(res))
         else:
             return HttpResponse("用户名或密码错误")
 

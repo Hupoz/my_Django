@@ -3,15 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
 </head>
 <body>
 
 <h4>欢迎来到登录页面！！</h4>
+<h4>基于form表单的登录验证：</h4>
 <form action="{% url 'login' %}" method="post">
     {% csrf_token %}
     用户名<input type="text" name="user">
     密码  <input type="password" name="pwd">
     <input type="submit">
 </form>
+
+<h4>基于Ajax的登录验证：</h4>
+<form>
+    用户名<input type="text" id="user_Ajax">
+    密码  <input type="password" id="pwd_Ajax">
+    <input type="button" value="submit_Ajax" class="login_btn">
+</form>
+<script>
+
+    $(".login_btn").click(function () {
+        $.ajax({
+            url:"/login/",
+            type:"post",
+            data:{
+              "user_Ajax":$("#user_Ajax").val(),
+              "pwd_Ajax":$("#pwd_Ajax").val(),
+            },
+            success:function(data){
+                var data = JSON.parse(data)
+                console.log(data)
+                console.log(typeof data)
+
+            },
+        })
+
+    })
+</script>
 </body>
 </html>
