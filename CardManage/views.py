@@ -19,7 +19,7 @@ def login(request):
         pwd_Ajax = request.POST.get("pwd_Ajax")
         res = {"user_Ajax": None,
                "msg": None}
-        print(user_Ajax, pwd_Ajax)
+        print(user, pwd, user_Ajax, pwd_Ajax)
 
         if user == "zyh" and pwd == "123":
             return HttpResponse("<h2>OK</h2>")
